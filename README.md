@@ -65,4 +65,4 @@
 
 
 ## Bonus
-  Tenho um site pessoal, que utilizo para estudo e desenvolvi o mesmo em ANGULAR, caso tenha curiosidade de conhecer o sita e me conhecer melhor, basta <a target="_blank" href="https://testgodev.netlify.app">clicar aqui</a>
+ Tenho um site pessoal, que utilizo para estudo e estou desenvolvendo ele em ANGULAR, caso tenha curiosidade de me conhecer melhor ou visualizar o site, basta <a target="_blank" href="https://testgodev.netlify.app">clicar aqui</a>
