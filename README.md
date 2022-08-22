@@ -65,4 +65,4 @@
 
 
 ## Bonus
- Tenho um site pessoal, que utilizo para estudo e estou desenvolvendo ele em ANGULAR, caso tenha curiosidade de me conhecer melhor ou visualizar o site, basta <a target="_blank" href="lucaschaves.netlify.app">clicar aqui</a>
+ Tenho um site pessoal, que utilizo para estudo e estou desenvolvendo ele em ANGULAR, caso tenha curiosidade de me conhecer melhor ou visualizar o site, basta <a target="_blank" href="https://lucaschaves.netlify.app">clicar aqui</a>
