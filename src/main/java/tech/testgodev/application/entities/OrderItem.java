@@ -1,9 +1,9 @@
 package tech.testgodev.application.entities;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,18 +15,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_order_item")
-public class OrderItem implements Serializable{
+public class OrderItem {
 
-	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "order_id")
 	@JsonIgnore
-	private Order order;
-	@ManyToOne
+	private SalesOrder order;
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_id")
 	private Product product;
 	private Double quantity;
@@ -34,7 +32,7 @@ public class OrderItem implements Serializable{
 	
 	public OrderItem(){ }
 
-	public OrderItem(Integer id, Order order, Product product, Double quantity, Double totalValue) {
+	public OrderItem(Integer id, SalesOrder order, Product product, Double quantity, Double totalValue) {
 		super();
 		this.id = id;
 		this.order = order;
@@ -42,7 +40,6 @@ public class OrderItem implements Serializable{
 		this.quantity = quantity;
 		this.totalValue = totalValue;
 	}
-	
 
 	public Integer getId() {
 		return id;
@@ -52,11 +49,11 @@ public class OrderItem implements Serializable{
 		this.id = id;
 	}
 
-	public Order getOrder() {
+	public SalesOrder getOrder() {
 		return order;
 	}
-	
-	public void setOrder(Order order) {
+
+	public void setOrder(SalesOrder order) {
 		this.order = order;
 	}
 
@@ -83,7 +80,6 @@ public class OrderItem implements Serializable{
 	public void setTotalValue(Double totalValue) {
 		this.totalValue = totalValue;
 	}
-	
 
 	@Override
 	public int hashCode() {

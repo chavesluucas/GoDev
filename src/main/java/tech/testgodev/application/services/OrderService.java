@@ -8,7 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import tech.testgodev.application.entities.Order;
+import tech.testgodev.application.entities.SalesOrder;
 import tech.testgodev.application.repositories.OrderRepository;
 import tech.testgodev.application.services.exceptions.DatabaseException;
 import tech.testgodev.application.services.exceptions.ResourceNotFoundException;
@@ -20,15 +20,15 @@ public class OrderService {
 	OrderRepository repository;
 	
 	//GetAll
-	public List<Order> getAll(){
-		List<Order> list = repository.findAll();
+	public List<SalesOrder> getAll(){
+		List<SalesOrder> list = repository.findAll();
 		
 		return list;
 	}
 	
 	//FindById
-	public Order findById(Integer id) {
-		Optional<Order> order = repository.findById(id);
+	public SalesOrder findById(Integer id) {
+		Optional<SalesOrder> order = repository.findById(id);
 		
 		return order.get();
 	}
@@ -45,12 +45,12 @@ public class OrderService {
 	}
 	
 	//save
-	public Order save(Order order) {
+	public SalesOrder save(SalesOrder order) {
 		return repository.save(order);
 	}
 	
 	//update
-	public Order update(Order obj) throws Exception{
+	public SalesOrder update(SalesOrder obj) throws Exception{
 		findById(obj.getId());
 		return save(obj);
 	}

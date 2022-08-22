@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import tech.testgodev.application.services.OrderItemService;
 
 @RestController
 @RequestMapping("/api/orderItems")
+@CrossOrigin("*")
 public class OrderItemController {
 
 	@Autowired
@@ -39,7 +41,7 @@ public class OrderItemController {
 		
 		return ResponseEntity.ok().body(orderItem);
 	}
-/*	
+	
 	@PostMapping
 	public ResponseEntity<OrderItem> save(@RequestBody OrderItem orderItem){
 		orderItem = service.save(orderItem);
@@ -47,15 +49,7 @@ public class OrderItemController {
 				.buildAndExpand(orderItem.getId()).toUri();
 		return ResponseEntity.created(uri).body(orderItem);
 	}
-	*/
-	
-	@PostMapping
-	public ResponseEntity<OrderItem> save(@RequestBody OrderItem obj){
-		obj = service.save(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/id")
-				.buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).body(obj);
-	}
+
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Integer id){

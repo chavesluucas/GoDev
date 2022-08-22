@@ -14,8 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_order")
-public class Order implements Serializable{
+@Table(name = "tb_sales_order")
+public class SalesOrder implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -30,9 +30,9 @@ public class Order implements Serializable{
 	@OneToMany(mappedBy = "order")
 	private List<OrderItem> orderItem = new ArrayList<>();
 	
-	public Order() { }
+	public SalesOrder() { }
 
-	public Order(Integer id, Integer number, Date date, Double percentualDiscount, Double totalValue) {
+	public SalesOrder(Integer id, Integer number, Date date, Double percentualDiscount, Double totalValue) {
 		super();
 		this.id = id;
 		this.number = number;
@@ -89,10 +89,6 @@ public class Order implements Serializable{
 		this.orderItem = orderItem;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(date, id, number, orderItem, percentualDiscount, totalValue);
@@ -106,7 +102,7 @@ public class Order implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Order other = (Order) obj;
+		SalesOrder other = (SalesOrder) obj;
 		return Objects.equals(date, other.date) && Objects.equals(id, other.id) && Objects.equals(number, other.number)
 				&& Objects.equals(orderItem, other.orderItem)
 				&& Objects.equals(percentualDiscount, other.percentualDiscount)

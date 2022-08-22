@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import tech.testgodev.application.entities.Order;
+import tech.testgodev.application.entities.SalesOrder;
 import tech.testgodev.application.services.OrderService;
 
 @RestController
@@ -29,21 +29,21 @@ public class OrderController {
 	OrderService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Order>> getAll(){
-		List<Order> listOrder = service.getAll();
+	public ResponseEntity<List<SalesOrder>> getAll(){
+		List<SalesOrder> listOrder = service.getAll();
 		
 		return ResponseEntity.ok().body(listOrder);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Order> getById(@PathVariable Integer id){
-		Order order = service.findById(id);
+	public ResponseEntity<SalesOrder> getById(@PathVariable Integer id){
+		SalesOrder order = service.findById(id);
 		
 		return ResponseEntity.ok().body(order);	
 	}
 	
 	@PostMapping
-	public ResponseEntity<Order> save(@RequestBody Order order){
+	public ResponseEntity<SalesOrder> save(@RequestBody SalesOrder order){
 		order = service.save(order);
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/id")
@@ -58,9 +58,9 @@ public class OrderController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Order> update(@RequestBody Order order) throws Exception{
+	public ResponseEntity<SalesOrder> update(@RequestBody SalesOrder order) throws Exception{
 		
-		return new ResponseEntity<Order>(service.update(order), HttpStatus.OK);
+		return new ResponseEntity<SalesOrder>(service.update(order), HttpStatus.OK);
 	}
 	
 }
