@@ -12,7 +12,7 @@
 + Maven
 
 
-## Campos das Entidades
+## Campos das Entidades e Endpoints
 
 ### Product
 + ID
