@@ -59,8 +59,9 @@
 ### Executando
 
 + Clone esse repósitório do GitHub (comando para utilizar no prompt de comando: ```git clone https://github.com/chavesluucas/GoDev.git```)
-+ Crie um schema no banco de dados com o nome "testgodev"
++ Crie uma database no banco de dados com o nome "testgodev"
 + Importe o projeto em sua IDE ( file > import > Existing Maven Project)
++ Entre na pasta src/main/resource e abra o arquivo application.properties, em"spring.datasource.username = root" altere o root para o username do seu banco de dados, e em "spring.datasource.password = admin" altere a informação de admin para a senha do seu banco de dados.
 + Rode o projeto (Caso estiver STS, recomendo rodar em "Spring Boot App")
 
 
